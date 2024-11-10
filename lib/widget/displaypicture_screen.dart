@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'dart:io'; // Pastikan impor ini ada
+import 'dart:typed_data';
 
-class DisplaypictureScreen extends StatelessWidget {
-  final String imagePath;
-  const DisplaypictureScreen({Key? key, required this.imagePath})
-      : super(key: key);
+class DisplayPictureScreen extends StatelessWidget {
+  final Uint8List imageBytes; // Data byte gambar
+
+  const DisplayPictureScreen({Key? key, required this.imageBytes}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Display the Picture'),
+        title: const Text('My Galery'),
       ),
       body: Center(
-        // Menambahkan Center agar gambar berada di tengah layar
-        child: Image.file(File(imagePath)),
+        child: Image.memory(
+          imageBytes, // Menampilkan gambar dari byte data
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

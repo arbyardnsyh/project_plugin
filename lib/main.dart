@@ -9,10 +9,11 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
-    theme: ThemeData.dark(),
-    home: TakepictureScreen(
-      camera: firstCamera,
+      theme: ThemeData.dark(),
+      home: TakepictureScreen(
+        camera: firstCamera,
+      ),
+      debugShowCheckedModeBanner: false,
     ),
-    debugShowCheckedModeBanner: false,
-  ));
+  );
 }
